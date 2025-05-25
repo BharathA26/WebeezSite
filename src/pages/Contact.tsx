@@ -1,25 +1,26 @@
-
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -29,7 +30,7 @@ const Contact = () => {
       title: "Message sent successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -40,7 +41,8 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to start your project? Get in touch with us today and let's discuss how we can help bring your vision to life.
+            Ready to start your project? Get in touch with us today and let's
+            discuss how we can help bring your vision to life.
           </p>
         </div>
 
@@ -65,13 +67,22 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-webeez-accent1" />
                   <div>
                     <p className="font-semibold text-webeez-primary">Email</p>
-                    <p className="text-gray-600">contact@webeez.dev</p>
+                    <p className="text-gray-600">
+                      <a
+                        href="mailto:webeezhelpdesk@gmail.com"
+                        className="text-webeez-secondary hover:text-webeez-secondary"
+                      >
+                        webeezhelpdesk@gmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-6 w-6 text-webeez-accent1" />
                   <div>
-                    <p className="font-semibold text-webeez-primary">Location</p>
+                    <p className="font-semibold text-webeez-primary">
+                      Location
+                    </p>
                     <p className="text-gray-600">Remote Team Worldwide</p>
                   </div>
                 </div>
@@ -91,7 +102,10 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-webeez-primary mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-webeez-primary mb-2"
+                      >
                         Full Name
                       </label>
                       <Input
@@ -106,7 +120,10 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-webeez-primary mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-webeez-primary mb-2"
+                      >
                         Email Address
                       </label>
                       <Input
@@ -122,7 +139,10 @@ const Contact = () => {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-webeez-primary mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-webeez-primary mb-2"
+                    >
                       Subject
                     </label>
                     <Input
@@ -137,7 +157,10 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-webeez-primary mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-webeez-primary mb-2"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -151,8 +174,8 @@ const Contact = () => {
                       placeholder="Tell us about your project..."
                     />
                   </div>
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full bg-webeez-secondary hover:bg-webeez-accent1 text-white py-3 text-lg font-semibold"
                   >
                     Send Message
