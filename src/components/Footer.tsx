@@ -1,5 +1,7 @@
 import logo from "../assets/whitelogo.png";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram,  FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -14,30 +16,35 @@ const Footer = () => {
               development and digital solutions. Create a website without
               limits.
             </p>
+            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
               <a
                 href="#"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
+                aria-label="Facebook"
               >
-                Facebook
+                <FaFacebook size={24} />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
+                aria-label="Instagram"
               >
-                Instagram
+                <FaInstagram size={24} />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
+                aria-label="Twitter"
               >
-                Twitter
+                <FaXTwitter size={24} />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
+                aria-label="LinkedIn"
               >
-                LinkedIn
+                <FaLinkedin size={24} />
               </a>
             </div>
           </div>
@@ -46,14 +53,6 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/about"
-                  className="text-gray-300 hover:text-webeez-accent2 transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
               <li>
                 <Link
                   to="/services"
@@ -75,7 +74,15 @@ const Footer = () => {
                   to="/contact"
                   className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 >
-                  Contact
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-webeez-accent2 transition-colors"
+                >
+                  About Us
                 </Link>
               </li>
             </ul>
@@ -85,7 +92,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>Phone: +91 7305998118</li>
               <li>
                 Email:{" "}
                 <a
@@ -95,14 +102,13 @@ const Footer = () => {
                   webeezhelpdesk@gmail.com
                 </a>
               </li>
-              <li>Location: Remote Team</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            &copy; 2025 Webeez. All rights reserved.
+            © 2025 Webeez. All rights reserved.
           </p>
         </div>
       </div>

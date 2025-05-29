@@ -206,7 +206,7 @@ const GetStarted = () => {
                     type="submit" 
                     className="w-full bg-webeez-secondary hover:bg-webeez-accent1 text-white py-3 text-lg font-semibold"
                   >
-                    Submit Project Inquiry
+                    Submit 
                   </Button>
                 </form>
               </CardContent>

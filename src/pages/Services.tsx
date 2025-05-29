@@ -8,8 +8,8 @@ const Services = () => {
     {
       icon: <Globe className="h-12 w-12 text-webeez-accent1" />,
       title: "Web Development",
-      description: "Custom web applications built with modern technologies like React.js, Node.js, and GraphQL. Full-stack solutions tailored to your business needs.",
-      features: ["React.js Frontend", "Node.js Backend", "GraphQL API", "Responsive Design", "SEO Optimization"]
+      description: "Custom web applications built using modern technologies, tailored to your business needs. We offer full-stack solutions that ensure performance, scalability, and user-friendliness.",
+      features: ["Responsive Design", "SEO Optimization", "We can design and develop your personal portfolio", "We can create your own website from scratch"]
     },
     {
       icon: <Server className="h-12 w-12 text-webeez-accent1" />,
@@ -66,9 +66,9 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-webeez-secondary hover:bg-webeez-accent1 text-white">
+                {/* <Button className="bg-webeez-secondary hover:bg-webeez-accent1 text-white">
                   Learn More
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           ))}
