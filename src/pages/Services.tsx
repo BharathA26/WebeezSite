@@ -2,6 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Globe, Server, Code, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -9,7 +10,7 @@ const Services = () => {
       icon: <Globe className="h-12 w-12 text-webeez-accent1" />,
       title: "Web Development",
       description: "Custom web applications built using modern technologies, tailored to your business needs. We offer full-stack solutions that ensure performance, scalability, and user-friendliness.",
-      features: ["Responsive Design", "SEO Optimization", "We can design and develop your personal portfolio", "We can create your own website from scratch"]
+      features: ["Responsive Design", "SEO Optimization", "Design and develop your personal portfolio", "Create your own website from scratch"]
     },
     {
       icon: <Server className="h-12 w-12 text-webeez-accent1" />,
@@ -19,7 +20,7 @@ const Services = () => {
     },
     {
       icon: <Code className="h-12 w-12 text-webeez-accent1" />,
-      title: "WordPress Development", 
+      title: "WordPress Development",
       description: "Professional WordPress websites with custom themes and plugins. Perfect for blogs, business websites, and content management.",
       features: ["Custom Themes", "Plugin Development", "Content Management", "SEO Ready", "Mobile Responsive"]
     },
@@ -82,9 +83,11 @@ const Services = () => {
             <p className="text-lg mb-6">
               Don't see exactly what you're looking for? We can create custom solutions tailored to your specific needs.
             </p>
-            <Button variant="outline" className="border-white text-webeez-primary hover:bg-white hover:text-webeez-primary">
-  Contact Us for Custom Quote
-</Button>
+            <Link to="/get-started">
+              <Button variant="outline" className="border-white text-webeez-primary hover:bg-white hover:text-webeez-primary">
+                Contact Us for Custom Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

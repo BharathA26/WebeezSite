@@ -1,9 +1,13 @@
 import logo from "../assets/whitelogo.png";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagram,  FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-webeez-primary text-white py-8 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,23 +30,29 @@ const Footer = () => {
                 <FaFacebook size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/webeezdevelopers/"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaInstagram size={24} />
               </a>
               <a
-                href="#"
+                href="https://x.com/Webeez4"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
-                aria-label="Twitter"
+                aria-label="X"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaXTwitter size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/webeez-freelancers"
                 className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaLinkedin size={24} />
               </a>
@@ -56,6 +66,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/services"
+                  onClick={scrollToTop}
                   className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 >
                   Services
@@ -64,6 +75,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/templates"
+                  onClick={scrollToTop}
                   className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 >
                   Templates
@@ -72,6 +84,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
+                  onClick={scrollToTop}
                   className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 >
                   Contact Us
@@ -80,6 +93,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about"
+                  onClick={scrollToTop}
                   className="text-gray-300 hover:text-webeez-accent2 transition-colors"
                 >
                   About Us

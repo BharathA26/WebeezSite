@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { CheckCircle, Clock, Users } from 'lucide-react';
+import {api} from "../api"
 
 const GetStarted = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const GetStarted = () => {
     timeline: '',
     description: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,20 +34,44 @@ const GetStarted = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Project inquiry submitted!",
-      description: "We'll review your requirements and get back to you within 24 hours.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      projectType: '',
-      timeline: '',
-      description: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${api.baseUrl}/api/get-started`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit project inquiry');
+      }
+
+      toast({
+        title: "Project inquiry submitted!",
+        description: "We'll review your requirements and get back to you within 24 hours.",
+      });
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        projectType: '',
+        timeline: '',
+        description: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit project inquiry. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const steps = [
@@ -205,8 +231,9 @@ const GetStarted = () => {
                   <Button 
                     type="submit" 
                     className="w-full bg-webeez-secondary hover:bg-webeez-accent1 text-white py-3 text-lg font-semibold"
+                    disabled={isSubmitting}
                   >
-                    Submit 
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
                 </form>
               </CardContent>

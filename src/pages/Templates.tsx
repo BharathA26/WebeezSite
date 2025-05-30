@@ -2,6 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const Templates = () => {
   const templates = [
@@ -82,7 +83,6 @@ const Templates = () => {
           ))}
         </div>
 
-        {/* Templates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {templates.map((template) => (
             <Card key={template.id} className="overflow-hidden hover:shadow-lg transition-all duration-200 transform hover:scale-105">
@@ -115,18 +115,11 @@ const Templates = () => {
                   ))}
                 </div>
                 <div className="flex gap-2">
-                  <Button 
-                    size="sm" 
+                  <Button
+                    size="sm"
                     className="flex-1 bg-webeez-secondary hover:bg-webeez-accent1 text-white"
                   >
                     View Demo
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="flex-1 border-webeez-secondary text-webeez-secondary hover:bg-webeez-secondary hover:text-white"
-                  >
-                    Customize
                   </Button>
                 </div>
               </CardContent>
@@ -143,9 +136,11 @@ const Templates = () => {
             <p className="text-lg mb-6">
               Don't see exactly what you're looking for? We can create a custom template designed specifically for your business needs.
             </p>
-            <Button variant="outline" className="border-white text-webeez-primary hover:bg-white hover:text-webeez-primary">
-              Request Custom Template
-            </Button>
+            <Link to="/get-started">
+              <Button variant="outline" className="border-white text-webeez-primary hover:bg-white hover:text-webeez-primary">
+                Request Custom Template
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,9 +8,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Service Provide', path: '/services' },
+    { name: 'Service', path: '/services' },
     { name: 'Templates', path: '/templates' },
     // { name: 'Feedback', path: '/feedback' },
     { name: 'About Us', path: '/about' },
@@ -25,7 +29,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           {/* Logo with fade-in animation */}
           <div className="flex items-center animate-fade-in">
-            <Link to="/" className="flex-shrink-0">
+            <Link to="/" className="flex-shrink-0" onClick={scrollToTop}>
               <img src={logo} alt="Webeez Logo" className="w-50 h-10 transition-transform duration-300 hover:scale-110" />
             </Link>
           </div>
@@ -36,6 +40,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
+                onClick={scrollToTop}
                 className={`px-3 py-2 text-sm font-medium transition-all duration-300 transform hover:translate-y-[-2px] ${
                   isActive(item.path)
                     ? 'text-webeez-secondary border-b-2 border-webeez-secondary'
@@ -45,7 +50,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/get-started">
+            <Link to="/get-started" onClick={scrollToTop}>
               <Button className="bg-webeez-secondary hover:bg-webeez-accent1 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Get Started
               </Button>
@@ -74,7 +79,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
                 className={`block px-3 py-2 text-base font-medium rounded-md transition-all duration-300 transform ${
                   isActive(item.path)
                     ? 'text-webeez-secondary bg-gray-100 translate-x-0'
@@ -86,7 +94,10 @@ const Navbar = () => {
             ))}
             <Link
               to="/get-started"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                scrollToTop();
+              }}
               className="block w-full mt-4"
             >
               <Button className="w-full bg-webeez-secondary hover:bg-webeez-accent1 text-white transition-all duration-300 transform hover:scale-105">
